@@ -1,5 +1,11 @@
 <div class="center">
-  <h1>Welcome <%= @user.name %></h1>
+  <h1><%= @user.name %></h1>
+  <% if current_user == @user %>
+    <form action="/tweet" method="post">
+      <textarea rows="3" cols="50" style="resize: none;" maxlength="140" name="tweet[body]" placeholder="What's happening?" required></textarea><br>
+      <input type="submit" value="Tweet">
+    </form>
+  <% end %>
   <%if @user.tweets.length == 0 %>
       Your timeline is currently empty. Follow people and topics you find interesting to see their Tweets in your timeline.
   <%else %>
@@ -8,8 +14,8 @@
       <%@tweets.each do |tweet| %>
       <div class="col-sm-4">
        <li> <a href="/users/<%= tweet.user.id %>"><%= tweet.user.name %></li></a>
-        <li> <a href="/tweet/<%= tweet.id %>"><%= tweet.body %></a></li>
-        <li><a href="/tweet/<%= tweet.id %>"><%= tweet.created_at.strftime("%d %b. %Y") %></a></li>
+        <li> <%= tweet.body %></li>
+        <li><%= tweet.created_at.strftime("%d %b. %Y") %></li>
         </div>
       <%end %>
 
@@ -31,25 +37,5 @@
     <input id='button3' class="btn btn-primary" type='submit' value="Followees">
   </form>
   </div>
+  <a href="/users">View other profiles</a>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-<!-- <form action="/users" method="post">
-  <textarea rows="3" cols="50" style="resize: none;" maxlength="140"></textarea><br>
-  <input type="submit" value="Submit">
-</form> -->
-
-
-<%# @tweet.each do |t| %>
-  <%#= t.body %>
-<%# end %>
-
