@@ -16,6 +16,13 @@
   <form action='/tweet/new' method='get'>
     <input id='button' type='submit' value="Create A Post">
   </form>
+  <form action='/users/<%= params[:id] %>/followers' method='get'>
+    <input id='button2' type='submit' value="Followers">
+  </form>
+  <form action='/users/<%= params[:id] %>/followees' method='get'>
+    <input id='button3' type='submit' value="Followees">
+  </form>
+
 </div>
 
 
