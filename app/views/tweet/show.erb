@@ -1,0 +1,21 @@
+<div class="center">
+  <h1>hey <%= current_user.name %></h1>
+  <h1>You tweeted this: <%= @tweet.body %></h1>
+  <h1>On this date: <%= @tweet.created_at.strftime("%d %b. %Y") %></h1>
+
+
+
+<% if @tweet.user_id == session[:id] %>
+<form action="/tweet/<%= params[:id] %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete tweet">
+</form>
+<%end %>
+
+<% if @tweet.user_id == session[:id] %>
+<form action="/tweet/<%= params[:id] %>/edit" method="get">
+  <input type="submit" value="Edit Tweet">
+</form>
+<%end %>
+
+</div>
