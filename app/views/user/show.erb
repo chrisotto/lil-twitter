@@ -6,24 +6,33 @@
   <ul id="tweet-list">
   <div class="container">
       <%@tweets.each do |tweet| %>
+      <div class="col-sm-4">
        <li> <a href="/users/<%= tweet.user.id %>"><%= tweet.user.name %></li></a>
         <li> <a href="/tweet/<%= tweet.id %>"><%= tweet.body %></a></li>
         <li><a href="/tweet/<%= tweet.id %>"><%= tweet.created_at.strftime("%d %b. %Y") %></a></li>
+        </div>
       <%end %>
+
     </div>
   </ul>
   <%end %>
+  <div class="col-sm-4">
   <form action='/tweet/new' method='get'>
-    <input id='button' type='submit' value="Create A Post">
+    <input id='button'  class="btn btn-primary" type='submit' value="Create A Post">
   </form>
+  </div>
+  <div class="col-sm-4">
   <form action='/users/<%= params[:id] %>/followers' method='get'>
-    <input id='button2' type='submit' value="Followers">
+    <input id='button2' class="btn btn-primary" type='submit' value="Followers">
   </form>
+  </div>
+  <div class="col-sm-4">
   <form action='/users/<%= params[:id] %>/followees' method='get'>
-    <input id='button3' type='submit' value="Followees">
+    <input id='button3' class="btn btn-primary" type='submit' value="Followees">
   </form>
-
+  </div>
 </div>
+
 
 
 

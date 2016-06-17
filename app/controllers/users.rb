@@ -19,12 +19,14 @@ get '/users/:id' do
 end
 
 get '/users/:id/followers' do
-  @followers = @user.follower_id
+  @user = User.find(params[:id])
+  @followers = @user.followers
   erb :"followers/show"
 end
 
 get '/users/:id/followees' do
-  @followees = @user.followee_id
+  @user = User.find(params[:id])
+  @followees = @user.followees
   erb :"followees/show"
 end
 
