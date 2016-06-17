@@ -2,6 +2,6 @@
 <h1> Followers Page </h1>
 
 <% @followers.each do |f| %>
-  <a href="/users/<%= params[:follower.id] %> /followers"><%= f.name %></a>
+  <a href="/users/<%= params[:follower.id] %>"><%= f.name %></a>
 <% end %>
 </div>
