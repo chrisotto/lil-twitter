@@ -14,3 +14,12 @@ nav.header {
 #tweet-list{
   list-style-type: none;
 }
+
+.container {
+  text-align: center;
+  font-family: "Goudy Bookletter 1911", sans-serif;
+  margin: 20px auto;
+  width: 600px;
+  padding: 0px 20px 20px 20px;
+
+}

@@ -4,11 +4,13 @@
       Your timeline is currently empty. Follow people and topics you find interesting to see their Tweets in your timeline.
   <%else %>
   <ul id="tweet-list">
+  <div class="container">
       <%@tweets.each do |tweet| %>
        <li> <a href="/users/<%= tweet.user.id %>"><%= tweet.user.name %></li></a>
-        <li><%= tweet.body %></li>
-        <li><%= tweet.created_at %></li>
+        <li>  <%= tweet.body %></li>
+        <li><%= tweet.created_at.strftime("%d %b. %Y") %></li>
       <%end %>
+    </div>
   </ul>
   <%end %>
   <form action='/tweet/new' method='get'>
