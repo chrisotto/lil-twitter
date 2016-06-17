@@ -1,0 +1,37 @@
+<div class="center">
+  <h1>Welcome <%= @user.name %></h1>
+  <%if @user.tweets.length == 0 %>
+      Your timeline is currently empty. Follow people and topics you find interesting to see their Tweets in your timeline.
+  <%else %>
+  <ul id="tweet-list">
+      <%@tweets.each do |tweet| %>
+       <li> <a href="/users/<%= tweet.user.id %>"><%= tweet.user.name %></li></a>
+        <li><%= tweet.body %></li>
+        <li><%= tweet.created_at %></li>
+      <%end %>
+  </ul>
+  <%end %>
+  <form action='/tweet/new' method='get'>
+    <input id='button' type='submit' value="Create A Post">
+  </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- <form action="/users" method="post">
+  <textarea rows="3" cols="50" style="resize: none;" maxlength="140"></textarea><br>
+  <input type="submit" value="Submit">
+</form> -->
+
+
+<%# @tweet.each do |t| %>
+  <%#= t.body %>
+<%# end %>
+
