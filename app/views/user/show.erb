@@ -5,7 +5,7 @@
   <%else %>
   <ul id="tweet-list">
       <%@tweets.each do |tweet| %>
-       <li> <%= tweet.user.name %></li>
+       <li> <a href="/users/<%= tweet.user.id %>"><%= tweet.user.name %></li></a>
         <li><%= tweet.body %></li>
         <li><%= tweet.created_at %></li>
       <%end %>
