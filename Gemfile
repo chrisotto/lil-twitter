@@ -15,6 +15,7 @@ gem 'bcrypt'
 gem 'rake'
 
 gem 'shotgun'
+gem 'bootstrap', '~> 4.0.0.alpha3'
 
 group :test do
   gem 'shoulda-matchers'
