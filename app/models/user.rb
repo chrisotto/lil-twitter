@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   validates_presence_of :username, :email, :password
   validates :email, uniqueness: true
   has_many :tweets
-  
+
   def password
     @password ||= Password.new(password_hash)
   end
