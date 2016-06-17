@@ -1,3 +1,12 @@
+header{
+  font-size: 3em;
+  background-color:#33ccff;
+}
+
 nav.header {
   float: right;
+}
+
+.center{
+  text-align: center;
 }
