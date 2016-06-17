@@ -8,13 +8,12 @@ post '/users' do
     session[:id] = @user.id
     redirect "/users/#{@user.id}"
   else
-    erb :'users/new'
+    erb :'/user/new'
   end
 end
 
 get '/users/:id' do
-  @user =User.find(params[:id])
+  @tweets = current_user.tweets.all
+  @user = User.find(params[:id])
   erb :"user/show"
 end
-
-
