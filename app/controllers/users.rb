@@ -2,6 +2,11 @@ get '/users/new' do
   erb :"/user/new"
 end
 
+get '/users' do
+  @users = User.all.order(:name)
+  erb :'/user/index'
+end
+
 post '/users' do
   @user = User.new(params[:user])
   if @user.save
