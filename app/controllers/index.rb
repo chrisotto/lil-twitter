@@ -1,6 +1,6 @@
 get '/' do
   if current_user
-    redirect "/users/#{current_user[:id]}" # TODO: change hash references to attribute references
+    redirect "/users/#{current_user.id}"
   else
     erb :'index'
   end
@@ -12,7 +12,7 @@ post '/login' do
     session[:id] = @user.id
     redirect "/users/#{@user.id}"
   else
-    @errors = @user.errors.full_messages
+    # TODO: pass errors to erb
     erb :'index'
   end
 end
