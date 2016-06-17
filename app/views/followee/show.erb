@@ -1,0 +1,8 @@
+<div class="center">
+<h1> Followees Page </h1>
+
+<% @at_followees.each do |follow| %>
+  <a href="/users/<%= params[:followee.id] %>/followees"><%= follow.name %></a>
+<% end %>
+
+</div>
