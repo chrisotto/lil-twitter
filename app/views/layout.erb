@@ -16,7 +16,7 @@
     Lil' Twitter
     <nav class="header">
       <% if current_user %>
-        Welcome <a href="/users/<%= current_user.id %>"><%= current_user.name %></a> | <a href="/logout">Logout</a>
+         <a href="/users/<%= current_user.id %>"><%= current_user.name %></a> | <a href="/logout">Logout</a>
       <% else %>
         <a href="/">Home</a> | <a href="/users/new">Sign Up</a>
       <% end %>
