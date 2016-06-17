@@ -18,7 +18,21 @@ post '/users' do
 end
 
 get '/users/:id' do
-  @user =User.find(params[:id])
+  @user = User.find(params[:id])
   @tweets = @user.tweets.sort{|tweet_1, tweet_2| tweet_2.created_at <=> tweet_1.created_at }
   erb :"user/show"
 end
+
+get '/users/:id/followers' do
+  @followers = @user.follower_id
+  erb :"followers/show"
+end
+
+get '/users/:id/followees' do
+  @followees = @user.followee_id
+  erb :"followees/show"
+end
+
+
+
+
