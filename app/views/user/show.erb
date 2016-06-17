@@ -7,7 +7,7 @@
   <div class="container">
       <%@tweets.each do |tweet| %>
        <li> <a href="/users/<%= tweet.user.id %>"><%= tweet.user.name %></li></a>
-        <li>  <%= tweet.body %></li>
+        <li> <a href="/tweet/<%= tweet.id %>"><%= tweet.body %></a></li>
         <li><%= tweet.created_at.strftime("%d %b. %Y") %></li>
       <%end %>
     </div>

@@ -13,3 +13,30 @@ p "3"*24
     erb :'tweet/new'
   end
 end
+
+get '/tweet/:id' do
+  @tweet = Tweet.find(params[:id])
+  erb :'tweet/show'
+end
+
+get '/tweet/:id/edit' do
+  @tweet = Tweet.find(params[:id])
+  erb :'tweet/edit'
+end
+
+put '/tweet/:id' do
+  @tweet = Tweet.find(params[:id])
+  @tweet.assign_attributes(params[:tweet])
+  if @tweet.save
+    redirect '/tweet'
+  else
+    erb :'tweet/edit'
+  end
+end
+
+delete '/tweet/:id' do
+  @user =User.find(session[:id])
+  @tweet = Tweet.find(params[:id])
+  @tweet.destroy
+  redirect "/users/#{@user.id}"
+end
