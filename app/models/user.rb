@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   include BCrypt
+
   has_many :friends_as_follower, class_name: 'Friend', foreign_key: :follower_id
   has_many :friends_as_followee, class_name: 'Friend', foreign_key: :followee_id
   has_many :followers, through: :friends_as_follower
