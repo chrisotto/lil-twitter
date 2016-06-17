@@ -16,3 +16,8 @@ post '/login' do
     erb :'index'
   end
 end
+
+get '/logout' do
+  session[:id] = nil
+  redirect '/'
+end
