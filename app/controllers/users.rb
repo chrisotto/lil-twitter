@@ -3,12 +3,9 @@ get '/users/new' do
 end
 
 post '/users' do
-  p params
-  p "4" * 5
   @user = User.new(params[:user])
   if @user.save
     session[:id] = @user.id
-
     redirect "/users/#{@user.id}"
   else
     erb :'/user/new'
@@ -17,8 +14,6 @@ end
 
 get '/users/:id' do
   @tweets = current_user.tweets.all
-  @user =User.find(params[:id])
+  @user = User.find(params[:id])
   erb :"user/show"
 end
-
-
