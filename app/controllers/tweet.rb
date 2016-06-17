@@ -25,10 +25,11 @@ get '/tweet/:id/edit' do
 end
 
 put '/tweet/:id' do
+  @user =User.find(session[:id])
   @tweet = Tweet.find(params[:id])
-  @tweet.assign_attributes(params[:tweet])
+  @tweet.assign_attributes( body: params[:tweet][:body], user_id: session[:id])
   if @tweet.save
-    redirect '/tweet'
+    redirect "/users/#{@user.id}"
   else
     erb :'tweet/edit'
   end

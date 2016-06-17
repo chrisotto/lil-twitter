@@ -8,7 +8,7 @@
       <%@tweets.each do |tweet| %>
        <li> <a href="/users/<%= tweet.user.id %>"><%= tweet.user.name %></li></a>
         <li> <a href="/tweet/<%= tweet.id %>"><%= tweet.body %></a></li>
-        <li><%= tweet.created_at.strftime("%d %b. %Y") %></li>
+        <li><a href="/tweet/<%= tweet.id %>"><%= tweet.created_at.strftime("%d %b. %Y") %></a></li>
       <%end %>
     </div>
   </ul>
